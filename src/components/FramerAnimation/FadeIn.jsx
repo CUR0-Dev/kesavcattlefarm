@@ -1,5 +1,11 @@
+// FadeIn.js
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
+
+const fadeInVariants = {
+  hidden: (y) => ({ opacity: 0, y }),
+  visible: { opacity: 1, y: 0 },
+};
 
 const FadeIn = ({
   children,
@@ -8,21 +14,29 @@ const FadeIn = ({
   viewportOnce = true,
   amount = 0.2,
   animationType = "animate", // "animate" or "whileInView"
+  useVariants = true,
 }) => {
-  const initial = { opacity: 0, y };
-  const final = { opacity: 1, y: 0 };
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // Choose between 'animate' and 'whileInView' based animation
-  const animationProps =
-    animationType === "animate"
-      ? { animate: final }
-      : { whileInView: final, viewport: { once: viewportOnce, amount } };
+  useLayoutEffect(() => {
+    // Trigger animation after initial layout
+    requestAnimationFrame(() => setHasMounted(true));
+  }, []);
+
+  const shouldAnimate = animationType === "animate" && hasMounted;
 
   return (
     <motion.div
-      initial={initial}
-      {...animationProps}
+      custom={y}
+      variants={useVariants ? fadeInVariants : undefined}
+      initial={useVariants ? "hidden" : { opacity: 0, y }}
+      animate={shouldAnimate ? "visible" : undefined}
       transition={{ duration: 0.6, ease: "easeOut", delay }}
+      viewport={
+        animationType === "whileInView"
+          ? { once: viewportOnce, amount }
+          : undefined
+      }
       className="will-change-auto"
     >
       {children}
