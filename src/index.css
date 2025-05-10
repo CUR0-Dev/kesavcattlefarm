@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+@theme {
+  --font-clash_display: "Clash Display", sans-serif;
+  --font-space_grotesk: "Space Grotesk", sans-serif;
+  --font-satoshi: "Satoshi", sans-serif;
+
+  --bg-primary: oklch(96.7% 0.001 286.375);
+  --color-primary: oklch(21% 0.006 285.885);
+
+  /* --animate-fade-in: fade-in 0.35s ease-in-out forwards;
+  --animate-fade-out: fade-out 0.35s ease-in-out forwards;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  } */
+}
+
+@layer base {
+  .dark {
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)]  font-space_grotesk text-[var(--color-primary)];
+  }
+}
+
+@layer utilities {
+  .base-container {
+    @apply max-w-5xl mx-auto;
+    padding-inline: calc(1rem + 2vw);
+  }
+
+  @media (orientation: landscape) and (max-height: 600px) {
+    .landscape-maxh600\:h-full {
+      @apply h-full;
+    }
+    .landscape-maxh600\:my-10 {
+      @apply my-10;
+    }
+  }
+
+  .home-page-imgStyle {
+    @apply aspect-[1] h-[7rem] sm:h-[7.5rem] md:h-[8.5rem] max-w-[100%] max-h-[100%] object-cover object-center rounded-lg shadow-lg;
+  }
+
+  .contact-page-lable {
+    @apply text-sm  text-zinc-300 text-left font-medium tracking-wide;
+  }
+  .contact-page-input {
+    @apply bg-zinc-50 outline-none rounded-md p-[0.5rem] w-full mb-0.5 font-semibold;
+  }
+}
