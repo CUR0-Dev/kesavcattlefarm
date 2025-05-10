@@ -1,5 +1,6 @@
 import React from "react";
 import FadeIn from "./FramerAnimation/FadeIn";
+import FadeInStagger from "./FramerAnimation/FadeInStagger";
 import { motion } from "framer-motion";
 import Img1 from "../assets/images/img1.jpg";
 import Img2 from "../assets/images/img2.jpg";
@@ -11,19 +12,21 @@ const Home = () => {
     <>
       <div className="w-full h-[calc(100dvh-3.5rem)] md:h-[calc(100dvh-4rem)] landscape:h-[100dvh] flex items-center flex-col justify-center gap-y-10 ">
         <div className="text-center">
-          <FadeIn y={-20} delay={0.4}>
-            <h1 className="text-3xl md:text-5xl font-clash_display text-zinc-950 font-medium mb-4">
-              Welcome to <br />
-              <FadeIn delay={0.6}>
-                <span>Kesav Cattle Farm</span>
-              </FadeIn>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.7}>
-            <p className="text-lg md:text-xl text-zinc-600">
-              Your one-stop destination for all your dairy needs.
-            </p>
-          </FadeIn>
+          <FadeInStagger>
+            <FadeIn y={-20} delay={0.4}>
+              <h1 className="text-3xl md:text-5xl font-clash_display text-zinc-950 font-medium mb-4">
+                Welcome to <br />
+                <FadeIn delay={0.6}>
+                  <span>Kesav Cattle Farm</span>
+                </FadeIn>
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.7}>
+              <p className="text-lg md:text-xl text-zinc-600">
+                Your one-stop destination for all your dairy needs.
+              </p>
+            </FadeIn>
+          </FadeInStagger>
         </div>
         <FadeIn y={20} delay={0.9}>
           <div className="flex flex-wrap gap-6 justify-center items-center">
