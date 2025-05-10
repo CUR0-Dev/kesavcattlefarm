@@ -20,8 +20,8 @@ function App() {
             <div className="base-container w-full">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/About" element={<About />} />
-                <Route path="/Contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<Home />} />
               </Routes>
             </div>

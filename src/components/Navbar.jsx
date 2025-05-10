@@ -4,8 +4,8 @@ import { motion, AnimatePresence, easeOut } from "framer-motion";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "About", path: "/About" },
-  { name: "Contact", path: "/Contact" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
 ];
 
 // Animation Variants
