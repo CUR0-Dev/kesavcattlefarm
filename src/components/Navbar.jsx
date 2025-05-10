@@ -73,7 +73,7 @@ const Navbar = () => {
       className="h-14 md:h-16 shadow-sm z-50 relative"
       initial={{ opacity: 0, y: -80 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
     >
       <div className="base-container w-full h-full flex items-center justify-between gap-3 px-4">
         <div className="text-xl md:text-2xl font-clash_display text-zinc-950 font-medium">

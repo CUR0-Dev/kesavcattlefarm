@@ -3,7 +3,7 @@ import React from "react";
 
 const FadeIn = ({
   children,
-  delay = 0,
+  delay = 0.4,
   y = 20,
   viewportOnce = true,
   amount = 0.2,
