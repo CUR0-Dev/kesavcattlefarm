@@ -1,6 +1,7 @@
 // FadeIn.js
 import { motion } from "framer-motion";
 import React, { useLayoutEffect, useState } from "react";
+import { set } from "react-hook-form";
 
 const fadeInVariants = {
   hidden: (y) => ({ opacity: 0, y }),
@@ -20,7 +21,10 @@ const FadeIn = ({
 
   useLayoutEffect(() => {
     // Trigger animation after initial layout
-    requestAnimationFrame(() => setHasMounted(true));
+    setTimeout(() => {
+      requestAnimationFrame(() => setHasMounted(true));
+    }, 400);
+    // requestAnimationFrame(() => setHasMounted(true));
   }, []);
 
   const shouldAnimate = animationType === "animate" && hasMounted;
