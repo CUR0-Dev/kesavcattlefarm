@@ -1,34 +1,34 @@
-// import { useState } from "react";
 import "./App.css";
-import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
-    <>
-      <BrowserRouter>
-        <AnimatePresence>
-          <div className="mx-auto">
-            <Navbar />
+    <BrowserRouter>
+      <ScrollToTop /> {/* Scrolls to top on every route change */}
+      <div className="mx-auto">
+        <Navbar />
 
-            <div className="base-container w-full">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<Home />} />
-              </Routes>
-            </div>
-          </div>
-        </AnimatePresence>
-      </BrowserRouter>
-    </>
+        <div className="base-container w-full">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </div>
+
+        {/* <div className="my-10">
+          <Footer />
+        </div> */}
+      </div>
+    </BrowserRouter>
   );
 }
 

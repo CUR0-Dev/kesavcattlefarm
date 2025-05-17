@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FadeIn from "./FramerAnimation/FadeIn";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top-left corner of the page
+  }, []);
   // const []
   const {
     register,
@@ -23,42 +26,6 @@ const Contact = () => {
 
   const onSubmit = (data) => {
     console.log("Form submitted:", data);
-  };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("Form submitted:", formData);
-  //   setFormData({
-  //     fullname: "",
-  //     email: "",
-  //     phoneNumber: "",
-  //     companyName: "",
-  //     message: "",
-  //   });
-  //   alert("Form submitted successfully!");
-  // };
-
-  const formValidation = (id, value) => {
-    if (id === "email") {
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(value)) {
-        return "Invalid email format";
-      }
-    } else if (id === "phoneNumber") {
-      const phonePattern = /^\+?\d{10}$/;
-      if (!phonePattern.test(value)) {
-        return "Invalid phone number format";
-      }
-    } else return "No validation required";
-  };
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    console.log(formValidation(id, value));
-    // setFormData((prevData) => ({
-    //   ...prevData,
-    //   [id]: value,
-    // }));
   };
 
   return (
@@ -158,7 +125,9 @@ const Contact = () => {
               </label>
               <input
                 id="fullname"
-                className="contact-page-input"
+                className={`contact-page-input ${
+                  errors.fullname ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="eg. Full Name"
                 {...register("fullname", {
                   required: "Full name is required",
@@ -177,7 +146,9 @@ const Contact = () => {
               </label>
               <input
                 id="email"
-                className="contact-page-input"
+                className={`contact-page-input ${
+                  errors.email ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="eg. johndoe@mail.com"
                 {...register("email", {
                   required: "Email is required",
@@ -196,7 +167,9 @@ const Contact = () => {
               </label>
               <input
                 id="phoneNumber"
-                className="contact-page-input"
+                className={`contact-page-input ${
+                  errors.phoneNumber ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="eg. 9876543210"
                 maxLength={10}
                 type="tel"
@@ -219,7 +192,9 @@ const Contact = () => {
               </label>
               <input
                 id="companyName"
-                className="contact-page-input"
+                className={`contact-page-input ${
+                  errors.companyName ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="eg. Kesav Cattle Farm"
                 {...register("companyName", {
                   required: "Company name is required",
@@ -244,7 +219,9 @@ const Contact = () => {
               </label>
               <textarea
                 id="message"
-                className="contact-page-input"
+                className={`contact-page-input ${
+                  errors.message ? "border-2 border-red-500" : ""
+                }`}
                 placeholder="eg. Inquiry about cattle"
                 {...register("message", {
                   required: "Message is required",
@@ -263,7 +240,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="bg-zinc-50 font-semibold align-bottom text-zinc-900 rounded-md p-3 w-[60%] hover:bg-zinc-300 hover:cursor-pointer transition-all duration-300"
+              className="text-zinc-50 border-zinc-50 border-2  font-semibold align-bottom  rounded-md p-3 w-[60%] hover:bg-zinc-50 hover:text-zinc-900 hover:cursor-pointer transition-all duration-300"
             >
               Submit
             </button>

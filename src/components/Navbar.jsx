@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence, easeOut } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -19,7 +19,7 @@ const menuVariants = {
       when: "beforeChildren",
       staggerChildren: 0.15,
       delayChildren: 0.1,
-      ease: easeOut,
+      ease: "easeOut",
     },
   },
   exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
@@ -27,7 +27,7 @@ const menuVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: 10 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.2, ease: easeOut } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.2, ease: "easeOut" } },
 };
 
 const Navbar = () => {

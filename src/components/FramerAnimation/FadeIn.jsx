@@ -23,7 +23,7 @@ const FadeIn = ({
       initial={initial}
       {...animationProps}
       transition={{ duration: 0.6, ease: "easeOut", delay }}
-      className="will-change-auto"
+      className="will-change-auto w-full"
     >
       {children}
     </motion.div>
