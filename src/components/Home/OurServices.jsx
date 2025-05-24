@@ -1,6 +1,6 @@
 import React from "react";
 import Milk from "../../assets/images/milk.jpg";
-import OurFarm from "../../assets/images/OurFarm.jpg";
+import OurFarm from "../../assets/images/ourFarm.jpg";
 import Delivery from "../../assets/images/Delivery.jpg";
 
 const OurServices = () => {
