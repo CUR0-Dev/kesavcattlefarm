@@ -7,10 +7,17 @@
   text-align: center;
 }
 
+/* body {
+  cursor: url("/icon/cursor-rounded.svg"), auto;
+} */
+
 @theme {
+  --breakpoint-xs: 30rem;
   --font-clash_display: "Clash Display", sans-serif;
   --font-space_grotesk: "Space Grotesk", sans-serif;
   --font-satoshi: "Satoshi", sans-serif;
+
+  /* --cursor-rounded: url("/assets/icon/cursor-svgrepo-com.svg"); */
 
   --bg-primary: oklch(96.7% 0.001 286.375);
   --color-primary: oklch(21% 0.006 285.885);

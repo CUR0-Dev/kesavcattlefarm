@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Home from "./components/Home";
+import Home from "./components/Home/Home.jsx";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 

@@ -84,7 +84,10 @@ const Navbar = () => {
           <ul className="flex gap-6">
             {navItems.map((item) => (
               <li key={item.name}>
-                <Link to={item.path} className="hover:text-zinc-500">
+                <Link
+                  to={item.path}
+                  className="hover:text-zinc-500 font-semibold"
+                >
                   {item.name}
                 </Link>
               </li>
