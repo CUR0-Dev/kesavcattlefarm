@@ -70,17 +70,17 @@ const OurServices = () => {
   return (
     <>
       <div className="md:my-10">
-        <div className="flex flex-col md:flex-row justify-between md:h-[480px] md:items-end gap-6 md:gap-3 ">
+        <div className="flex flex-col md:flex-row justify-between  md:items-end gap-6 md:gap-3 ">
           {serviceDetails.map((service, index) => {
             return (
               <>
                 <div
                   key={index}
                   className={`p-6 rounded-lg md:w-1/3 transition-all transform duration-700 ease-in-out cursor-default select-none self-start ${
-                    index === 1 ? "" : "md:pt-20"
+                    index === 1 ? "" : "md:mt-16"
                   } ${service?.bgColor?.mdHover} ${
                     service?.bgColor?.color
-                  } md:bg-transparent`}
+                  } md:bg-transparent md:h-[480px]`}
                 >
                   <div className="flex items-center flex-col xs:flex-row xs:mb-6 md:flex-col gap-6">
                     <p className="inline-block p-3 md:p-10 ring-2 rounded-tr-[50%] rounded-bl-[50%]">
